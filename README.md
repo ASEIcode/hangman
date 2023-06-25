@@ -15,7 +15,26 @@ This is an implementation of the Hangman game using python 3, where the computer
 2. The random.choice() method was employed to choose a random word from this list of fruits. Assigned to the variable "word"
 3. The user is now asked to enter a single letter. If they enter one letter the output displays a positive message, if they enter more than one letter they receive an invalid input message
 
+## Milestone 3
 
+Created milestone_3.py
+
+1. check_guess() and ask_for_input function added. 
+
+    ### Check guess: 
+    Takes a single letter argument (guess) from the ask_for_input() function 
+    and checks if it is present in the current random word. 
+    Calls the ask_for_input() function again if the letter is not present.
+    Prints the message "Good guess! {guess} is in the word" if it is present.
+
+    args: guess (string)
+
+    returns: incorrect guess = ask_for_input() / correct guess = end
+
+    ### ask_for_input()
+    Asks the user to iput a single letter. Validates this input and calls the function again if it fails
+
+2. Comments and doc strings added to keep code clear
 
 
 
