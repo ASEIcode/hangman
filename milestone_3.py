@@ -13,12 +13,12 @@ def check_guess(guess):
     """
     guess = guess.lower()
 
-    correct_guess = False # condition to break while loop
-    while not correct_guess: # loops as long as the guess is incorrect
+    incorrect_guess = True # condition to break while loop
+    while incorrect_guess: # loops as long as the guess is incorrect
 
         if guess in list(word):
             print(f"Good guess! {guess} is in the word")
-            correct_guess = True #breaks while loop
+            incorrect_guess = False #breaks while loop
         else:
             print(f"Sorry, {guess} is not in the word. Try again.")
             return ask_for_input() # request another guess
