@@ -108,7 +108,21 @@ Created milestone_4.py
     - Checks if the letter has already been guessed by comparing it to *list_of_guesses*. If the letter has already been guessed it informs the user and calls the *ask_for_input* method again.
     - If it passes these validations the else block appends the guessed letter to the *list_of_guesses* attribute and calls the *check_guess* method passing in the *guess* variable as its argument.
 
+-----------------------
+## **Milestone 5**
+-----------------------
 
+Created new file "milestone_5.py"
+
+Added the *play_game(word_list)* function to contain the logic of what happens when we run the game. This takes the argument "*word_list*" which allows us to define the list of words that can be randomly chosen during the game.
+
+Created a *game_active* while loop which will continuiously loop and check for the below conditional statements
+
+1. Checks if the user has any lives left. (if game.num_lives == 0:). When True it Prints a Game over message and tells the user what the word is. Breaks the while loop. 
+2. if this check is passed it then checks if the user has guessed all of the letters in the word correctly using (elif game.num_letters > 0:). If not it will call the ask_for_input method and prompt the user to guess a new letter.
+3. if the previous check is 0 then there are no letters left to guess and the user has won the game. Prints a congratulatory message and breaks the while loop
+
+I had to remove the while loop from the check_guess() method as this was creating an ininite loop. The play_game() while loop has taken its place.
 
 
 
