@@ -7,11 +7,19 @@ class Hangman:
         self.list_of_guesses = [] # list of letters already guessed 
         self.num_lives = num_lives # number of lives at start of game
         self.word_list = word_list # list of possible words for the game
-        self.word = random.choice(self.word_list)
+        self.word = random.choice(self.word_list) #  random word generator using word_list
         self.word_guessed = ["_" for letter in self.word] # list of letters guess and not guessed in word e.g. ["a", "_", "_", "l", "e"] (apple)
         self.num_letters = len(set(self.word)) # number of unique letters left to guess
 
     def check_guess(self, guess):
+        
+        """
+        Checks the guess argument received from the ask_for_input() method against the word attribute.
+        If the letter matches, it adds the letter to the word_guessed attribute, replacing an underscore.
+        Also decreases num_lives for incorrect guesses and decreases num_letters for each correct guess.
+        args: guess
+        return: None
+        """
      
         guess = guess.lower()
 
@@ -25,7 +33,6 @@ class Hangman:
             self.num_letters -= 1 # reduce unique letters left to guess
             print(self.word_guessed) # print the word showing missing letters
             print(f"{self.num_letters} still left to find!") # inform user how many letters are left to guess
-            #self.ask_for_input() # run the next round
                     
         else:
             print(f"\nSorry, {guess} is not in the word.")
@@ -34,11 +41,11 @@ class Hangman:
             print(f"So far you have guessed: {self.list_of_guesses}")
             print("Please Try again.") 
             print(self.word_guessed)
-            #self.ask_for_input() # request another guess
-
+            
     def ask_for_input(self):
         """
-        Asks the user to iput a single letter. Validates this input and calls the function again if it fails
+        Asks the user to iput a single letter. Validates this input and calls the function again if it fails.
+        If the first two validations are passed then it calls the check_guess() method using guess as an argument.
         """
         guess = input("\nGuess a letter: ")
         if not guess.isalpha() or len(guess) != 1:
@@ -54,6 +61,14 @@ class Hangman:
 
 
 def play_game(word_list):
+    """
+    Runs the game and defines a while loop to continue asking for guesses as long as the user has lives (num_lives)
+    and still has letters left to guess (num_letters)
+
+    args: word_list - Type: list >  a list of possible words for the random generator to pick from
+    
+    returns: None - used to run the methods in Hangman class.
+    """
     num_lives = 5
     game = Hangman(word_list, num_lives)
     game_active = True
@@ -83,10 +98,9 @@ Your mystery word is: {game.word_guessed}
 
 play_game(["elephant", "tiger", "giraffe", "lion", "monkey", "zebra", "kangaroo", "penguin", "hippo", "crocodile"])
 
-# To be added: List of possible themes that user can choose from. A new word list for each theme
-# To be added: Continue function - asks user if they would like to play again and starts the game fresh if so.
-# To be added: Fancy game over screen
-# To be added: Fancy start screen
+# Future changes:
+# List of possible themes that user can choose from. A new word list for each theme
+# Continue function - asks user if they would like to play again and starts the game fresh if so.
 
 
 
